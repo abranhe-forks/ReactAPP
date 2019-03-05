@@ -16,8 +16,8 @@ class App extends Component
       <Fragment>
         <BrowserRouter>
           <Switch>
-            <Route exact path={"/"} component={Root}>
-              <Route exact path={"user"} component={User}/>
+            <Route path={"/"} component={Root}>
+              <Route path={"user/:id"} component={User}/>
               <Route exact path={"home"} component={Home}/> 
             </Route> 
             <Route exact path={"home-single"} component={Home}/> 
