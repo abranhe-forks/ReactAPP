@@ -1,26 +1,20 @@
-import React, { Component } from 'react';
+import React from "react";
+import {Link} from "react-router-dom";
 
-
-class Header extends Component {
-  constructor(props){
-    super();
-  }
-  render() {
+export const Header = (props) => {
     return (
         <nav className="navbar navbar-default">
-           <div className="container">
-              <div className="navbar-header">
-                <ul className="nav navbar-header">
-                  <li><a href="#">{this.props.homeLink}</a></li>
-                </ul>
-              </div>
-           </div>
-           <hr />
-        <button onClick={this.props.call} className="btn btn-primary">Call Father Component</button>
+            <div className="container">
+                <div className="navbar-header">
+                    <ul className="nav navbar-nav">
+                        <li><Link to={"/home"} activeStyle={{color: "red"}}>Home</Link></li>
+                        <li><Link to={"/user/10"} activeClassName={"active"}>User</Link></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
-       
     );
-  }
-}
+};
+
 
 export default Header;

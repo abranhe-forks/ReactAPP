@@ -1,115 +1,13 @@
-import React, { Component } from 'react';
-// import React, { Component, PropTypes } from 'react';
+import React from "react";
 
-class Home extends Component {
-  constructor(props){
-    super();
-    this.state = {
-      Age: props.Personage,
-      status: 0,
-      homeLink: props.initialLinkText
-    };
-    setTimeout( () => {
-      this.setState({
-        status: this.state.status + 100
-      })
-    }, 3000);
-    console.log("constructor");
-  }
-
-  componentWillMount()
-  {
-    console.log("Component will mount");
-  }
-
-  componentDidMount()
-  {
-    console.log("Component did mount!");
-  }
-
-  componentWillReceiveProps(nextProps)
-  {
-    console.log("Component will receive new props", nextProps);
-  }
-
-  shouldComponentUpdate(nextProps, newState)
-  {
-    console.log("Should component update?", nextProps, newState);
-    // if(newState.status === 1 ){
-    //   return false;
-    // }
-    return true;
-  }
-
-  componentWillUpdate(nextProps, newState)
-  {
-    console.log("Component will update", nextProps, newState);
-  }
-
-
-  componentDidUpdate(prevProps, prevState){
-    console.log("Component did update", prevProps, prevState);
-    
-  }
-
-  componentWillUnmount(){
-    console.log("Component will unmount");
-  }
-
-  increaseAge() {
-    this.setState(
-      {
-      Age: ++this.state.Age
-    });
-    console.log(this.state.Age);
-  }
-
-  onChangeLink(){
-    this.props.changelink(this.state.homeLink);
-  }
-
-  handleChange(event){
-    this.setState({
-      homeLink: event.target.value
-    })
-  }
-
-
-
-  render() {
-    var test = "variables work before return";
-    // view the properties passed to the component
-    console.log(this.props);
-    return (
-        <div>
-            <p>In the home Component!</p>
-            {"Apperently I can run some javascript here and put it before the return method :D"}
-            <p>My name is {this.props.name}</p>
-            <p>My age is {this.state.Age}</p>
-            <p>Status : {this.state.status}</p>
-            <button className="addAge" onClick={() => this.increaseAge()}></button>
-            <p>{test}</p>
-            <hr/>
-            {this.props.children}
-            {/* TODO get this to change */}
-            <input 
-            type="text" 
-            value={this.state.homeLink}
-            onChange={(event) => this.handleChange(event)}
-            ></input>
-            <hr/>
-            <button onClick={() => this.onChangeLink()} className="btn btn-primary">Change Header link here</button>
-            <hr/>
-            
-        </div>
-    );
-  }
+export class Home extends React.Component {
+    render() {
+        return (
+            <div>
+                <h3>Home</h3>
+            </div>
+        );
+    }
 }
-
-// Home.propTypes = {
-//   name: React.PropTypes.string,
-//   age: React.PropTypes.number
-// };
-
 
 export default Home;
